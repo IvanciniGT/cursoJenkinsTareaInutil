@@ -50,6 +50,7 @@ node {
             }
             echo 'Pues no ha sido para tanto !!!!'
         }
+        
         stage ("Generar fichero") {
             sh "echo '${CONTENIDO}' > ${FICHERO}"
         }

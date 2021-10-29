@@ -51,6 +51,15 @@ node {
             if(currentBuild.rawBuild.getCause(hudson.triggers.SCMTrigger$SCMTriggerCause)!=null){
                 echo "Esto solo se ejecuta si la causa es un lanzamiento debido a cambio en el repo"
             }
+            if(currentBuild.buildCause(hudson.model.Cause$UserIdCause)!=null){
+                echo "Esto solo se ejecuta si la causa es un lanzamiento manual"
+            }
+            if(currentBuild.buildCause(hudson.triggers.TimerTrigger$TimerTriggerCause)!=null){
+                echo "Esto solo se ejecuta si la causa es un lanzamiento basado en cron"
+            }
+            if(currentBuild.buildCause(hudson.triggers.SCMTrigger$SCMTriggerCause)!=null){
+                echo "Esto solo se ejecuta si la causa es un lanzamiento debido a cambio en el repo"
+            }
             
             
             /*

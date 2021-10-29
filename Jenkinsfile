@@ -62,7 +62,7 @@ node {
                         filter: "$FICHERO", 
                         fingerprintArtifacts: true, 
                         projectName: currentBuild.projectName, 
-                        selector: specific( buildAnterior.number )
+                        selector: specific( "${buildAnterior.number}" )
                     )
                     break
                 }

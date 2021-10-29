@@ -41,6 +41,17 @@ node {
             print currentBuild.buildCauses
             print currentBuild.projectName
             print currentBuild.previousBuild
+            
+            if(currentBuild.buildCause("hudson.model.Cause$UserIdCause")!=null){
+                echo "Esto solo se ejecuta si la causa es un lanzamiento manual"
+            }
+            if(currentBuild.buildCause("hudson.trigger.TimerTrigger$TimerTriggerCause")!=null){
+                echo "Esto solo se ejecuta si la causa es un lanzamiento basado en cron"
+            }
+            if(currentBuild.buildCause("hudson.trigger.SCMTrigger$SCMTriggerCause")!=null){
+                echo "Esto solo se ejecuta si la causa es un lanzamiento debido a cambio en el repo"
+            }
+            
         }
         stage ("Hacer las cosas") {
             echo "Hago mis cosas de mi tarea"
